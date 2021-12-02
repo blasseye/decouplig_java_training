@@ -25,7 +25,6 @@ public class Launcher {
                 }
                 catch (Exception r){
                     System.out.println("Probème sur le deuxieme argument");
-
                 }
 
             }
