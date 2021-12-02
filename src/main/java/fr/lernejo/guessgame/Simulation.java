@@ -55,7 +55,7 @@ public class Simulation<player, numberToGuess> {
             logger.log("Il te reste " + i +"essaies");
         }
         long t2 = System.currentTimeMillis();
-        long temps = (t2 - t1)/1000;
-        logger.log("En seulement " + temps +"s");
+        long temps = (t2 - t1);
+        logger.log("En seulement " + temps +"ms");
     }
 }
