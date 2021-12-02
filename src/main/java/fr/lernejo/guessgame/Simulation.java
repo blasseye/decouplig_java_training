@@ -1,10 +1,8 @@
 package fr.lernejo.guessgame;
 
-import fr.lernejo.guessgame.Player;
-import fr.lernejo.logger.ConsoleLogger;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
-import java.util.Scanner;
+
 
 public class Simulation<player, numberToGuess> {
 
@@ -44,7 +42,20 @@ public class Simulation<player, numberToGuess> {
         return false;
     }
 
-    public void loopUntilPlayerSucceed() {
-        while (!nextRound());
+    public void loopUntilPlayerSucceed(int max_it) {
+        int i=max_it;
+        long t1 = System.currentTimeMillis();
+        logger.log("Tu as " + i +" essaies pour trouver.");
+        while (!nextRound()){
+            i--;
+            if (i==0){
+                logger.log("Gros nul ! Perdu !");
+                break;
+            }
+            logger.log("Il te reste " + i +"essaies");
+        }
+        long t2 = System.currentTimeMillis();
+        long temps = (t2 - t1)/1000;
+        logger.log("En seulement " + temps +"s");
     }
 }
